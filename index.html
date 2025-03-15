@@ -1,44 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
+    <title>Información del Libro</title>
     <script>
-        function rellenarFormulario() {
+        // Función para leer los parámetros de la URL y mostrar la información
+        function mostrarInformacion() {
             const urlParams = new URLSearchParams(window.location.search);
             const titulo = urlParams.get('titulo');
             const autor = urlParams.get('autor');
             const fecha = urlParams.get('fecha');
 
-            // Rellenar los campos del formulario
-            document.getElementById("titulo").value = titulo || "";
-            document.getElementById("autor").value = autor || "";
-            document.getElementById("fecha").value = fecha || "";
+            // Mostrar la información en la página
+            document.getElementById("titulo").innerText = titulo || "No disponible";
+            document.getElementById("autor").innerText = autor || "No disponible";
+            document.getElementById("fecha").innerText = fecha || "No disponible";
         }
 
-        window.onload = rellenarFormulario;
+        // Ejecutar la función cuando la página se cargue
+        window.onload = mostrarInformacion;
     </script>
 </head>
-
 <body>
-
-
-    <h1>Formulario de Libro</h1>
-    <form>
-        <label for="titulo">Título:</label>
-        <input type="text" id="titulo" name="titulo"><br><br>
-
-        <label for="autor">Autor:</label>
-        <input type="text" id="autor" name="autor"><br><br>
-
-        <label for="fecha">Fecha de publicación:</label>
-        <input type="text" id="fecha" name="fecha"><br><br>
-
-        <input type="submit" value="Enviar">
-    </form>
+    <h1>Información del Libro</h1>
+    <p><strong>Título:</strong> <span id="titulo"></span></p>
+    <p><strong>Autor:</strong> <span id="autor"></span></p>
+    <p><strong>Fecha de publicación:</strong> <span id="fecha"></span></p>
 </body>
-
 </html>

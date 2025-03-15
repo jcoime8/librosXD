@@ -12,6 +12,9 @@
             const autor = urlParams.get('autor');
             const fecha = urlParams.get('fecha');
 
+            titulo.replace('-', ' ')
+            autor.replace('-', ' ')
+
             // Mostrar la información en la página
             document.getElementById("titulo").innerText = titulo || "No disponible";
             document.getElementById("autor").innerText = autor || "No disponible";

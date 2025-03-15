@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,27 +9,31 @@
         // Función para leer los parámetros de la URL y mostrar la información
         function mostrarInformacion() {
             const urlParams = new URLSearchParams(window.location.search);
-            const titulo = urlParams.get('titulo');
-            const autor = urlParams.get('autor');
-            const fecha = urlParams.get('fecha');
+            let titulo = urlParams.get('titulo') || "No disponible";
+            let autor = urlParams.get('autor') || "No disponible";
+            let fecha = urlParams.get('fecha') || "No disponible";
 
-            titulo.replaceAll('-', ' ')
-            autor.replaceAll('-', ' ')
+            // Reemplazar los guiones por espacios
+            titulo = titulo.replaceAll('-', ' ');
+            autor = autor.replaceAll('-', ' ');
 
             // Mostrar la información en la página
-            document.getElementById("titulo").innerText = titulo || "No disponible";
-            document.getElementById("autor").innerText = autor || "No disponible";
-            document.getElementById("fecha").innerText = fecha || "No disponible";
+            document.getElementById("titulo").innerText = titulo;
+            document.getElementById("autor").innerText = autor;
+            document.getElementById("fecha").innerText = fecha;
         }
+
 
         // Ejecutar la función cuando la página se cargue
         window.onload = mostrarInformacion;
     </script>
 </head>
+
 <body>
     <h1>Información del Libro</h1>
     <p><strong>Título:</strong> <span id="titulo"></span></p>
     <p><strong>Autor:</strong> <span id="autor"></span></p>
     <p><strong>Fecha de publicación:</strong> <span id="fecha"></span></p>
 </body>
+
 </html>
